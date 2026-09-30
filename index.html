@@ -3,66 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>내 프로필</title>
+    <title>박채원 포트폴리오</title>
     <style>
-        /* 페이지 전체 스타일 */
+        /* 기본 스타일 설정 */
         body {
             font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-            background-color: #f5f6fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        /* 프로필 카드 스타일 */
-        .profile-card {
-            background-color: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 350px;
-            width: 100%;
-        }
-
-        /* 프로필 이미지 스타일 */
-        .profile-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* 이미지를 동그랗게 만듭니다 */
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 4px solid #eaeaea;
-        }
-
-        /* 이름 및 소개글 스타일 */
-        .profile-card h1 {
-            margin: 0 0 10px 0;
-            font-size: 24px;
-            color: #2f3640;
-        }
-
-        .profile-card p {
-            margin: 0;
-            color: #7f8fa6;
             line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        /* 1. 기본 정보 (헤더) 스타일 */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 10px 0;
+            font-size: 32px;
+        }
+        .header p {
+            font-size: 18px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        /* 섹션 공통 스타일 */
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        /* 리스트 스타일 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #bdc3c7;
+        }
+        ul li strong {
+            display: inline-block;
+            width: 120px;
+            color: #2980b9;
+        }
+
+        /* 미디어 (사진/영상) 틀 스타일 */
+        .media-placeholder {
+            background: #eee;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .media-placeholder img, .media-placeholder video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* 연락처 스타일 */
+        .contact-list li {
+            background: none;
+            border: none;
+            padding: 5px 0;
+        }
+        .contact-list a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-list a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
+<div class="container">
+
+    <!-- 1. 기본 정보 -->
+    <div class="header">
         <!-- 
-          주의: 아래 src="profile.jpg" 부분의 'profile.jpg'는 
-          GitHub에 올리실 실제 이미지 파일명과 정확히 똑같아야 합니다.
+            프로필 사진: 이전 안내대로 파일명을 profile.jpg 로 변경하여 업로드하세요. 
         -->
-        <img src="profile.jpg" alt="프로필 사진">
-        
+        <img src="profile.jpg" alt="박채원 프로필 사진" class="profile-img">
         <h1>박채원</h1>
-        <p>안녕하세요! 방문해 주셔서 감사합니다. <br>이곳은 저의 프로필 페이지입니다.</p>
+        <p>서경대학교 | 스포츠앤테크놀로지학과</p>
+        <!-- 프로필 한 줄 소개 (내용이 생기면 아래에 작성하세요) -->
+        <p><em>여기에 프로필 한 줄 소개를 입력하세요.</em></p>
     </div>
+
+    <!-- 2. 자기소개 -->
+    <div class="section">
+        <h2>2. 자기소개</h2>
+        <p>여기에 나에 대한 간단한 소개글을 작성해 주세요.</p>
+        <ul>
+            <li><strong>관심 분야</strong> 데이터분석, 운동역학</li>
+            <li><strong>나의 강점</strong> 섬세함, 배려, 실행력</li>
+            <li><strong>희망 진로/직무</strong> 연구, 데이터 분석, 컨텐츠 기획</li>
+        </ul>
+    </div>
+
+    <!-- 3. 학력 및 이력 -->
+    <div class="section">
+        <h2>3. 학력 및 이력</h2>
+        <ul>
+            <li><strong>학교 / 전공</strong> 서경대학교 / 스포츠앤테크놀로지학과</li>
+            <li>
+                <strong>경력</strong> 
+                (아르바이트·인턴·현장실습 등 경력을 입력하세요)
+            </li>
+            <li>
+                <strong>동아리 및 대외활동</strong>
+                <div style="margin-top:10px;">
+                    - 스포츠의학동아리 RE:fit<br>
+                    - 스포츠마케팅동아리 SPARK<br>
+                    - moty V의 등속모드/ 일반 모드 효과 비교 분석 연구 (연구트레이너)<br>
+                    - 성동구 체력측정평가 도우미 봉사활동<br>
+                    - 서경대 창의산학교육원 서포터즈 1기, 2기
+                </div>
+            </li>
+            <li>
+                <strong>스포츠 활동/지도</strong>
+                <div style="margin-top:10px;">
+                    - 휘트니스피플 이수점 트레이너<br>
+                    - 위너스체대입시학원 노원점 메인강사
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 4. 주요 활동 및 경험 -->
+    <div class="section">
+        <h2>4. 주요 활동 및 경험</h2>
+        <ul>
+            <li><strong>활동명</strong> 스포츠마케팅동아리 SPARK의 FC서울 협업 프로젝트</li>
+            <li><strong>활동 내용</strong> FC서울이 2030세대에게 지속적인 관람을 유도하기 위한 마케팅</li>
+            <li>
+                <strong>담당한 역할</strong>
+                <div style="margin-top:10px;">
+                    <b>[프로젝트 1] 9/5 FC서울 vs 인천유나이티드 대학생 모객</b><br>
+                    - 신청 구글폼 제작 및 자금 관리, 홍보 영상 제작<br><br>
+                    <b>[프로젝트 2] 10/2 타겟팅 경쟁 PT</b><br>
+                    - QR 설문지 제작, 예산 기획, 4P에 대한 자료조사
+                </div>
+            </li>
+            <li><strong>배운 점</strong> 신뢰성 있는 자료 찾기, 신청폼 질문에 대한 이해도, 축구의 팬덤과 문화에 대한 이해도, 모객에 대한 기획력 향상</li>
+        </ul>
+        
+        <!-- 사진 및 영상 들어갈 자리 -->
+        <div class="media-placeholder">
+            <p>활동 모습 (사진) - 파일명을 영문(예: activity.jpg)으로 올리고 아래 태그의 src를 수정하세요.</p>
+            <!-- <img src="activity.jpg" alt="활동 사진"> -->
+        </div>
+        <div class="media-placeholder">
+            <p>활동 영상 (영상) - 파일명을 영문(예: video.mp4)으로 올리고 아래 태그의 src를 수정하세요.</p>
+            <!-- 
+            <video controls>
+                <source src="video.mp4" type="video/mp4">
+            </video> 
+            -->
+        </div>
+    </div>
+
+    <!-- 5. 자격 및 수상 -->
+    <div class="section">
+        <h2>5. 자격 및 수상</h2>
+        <ul>
+            <li><strong>자격증</strong> 생활스포츠지도자 2급, FISAF 국제퍼스널트레이너 1급</li>
+            <li><strong>교육·연수 이수</strong> (내용이 있다면 입력하세요)</li>
+        </ul>
+        <div class="media-placeholder">
+            <p>관련 자료 (사진) - 자격증 스캔본 등을 올릴 수 있습니다.</p>
+            <!-- <img src="certificate.jpg" alt="자격증 사진"> -->
+        </div>
+    </div>
+
+    <!-- 6. 내가 사용할 수 있는 것 -->
+    <div class="section">
+        <h2>6. 보유 스킬 및 툴</h2>
+        <ul>
+            <li><strong>프로그램 / AI</strong> 한글, 챗GPT, 제미나이</li>
+            <li><strong>영상 / 디자인</strong> CapCut, Figma</li>
+            <li><strong>데이터 분석</strong> (사용 가능한 툴이나 언어를 입력하세요)</li>
+            <li><strong>운동·스포츠 지도</strong> (지도 가능한 종목 등을 입력하세요)</li>
+            <li><strong>기타</strong> (기타 능력을 입력하세요)</li>
+        </ul>
+    </div>
+
+    <!-- 7. 연락처 및 링크 -->
+    <div class="section">
+        <h2>7. 연락처 및 링크</h2>
+        <ul class="contact-list">
+            <li><strong>이메일:</strong> <a href="mailto:won707105@skuniv.ac.kr">won707105@skuniv.ac.kr</a></li>
+            <li><strong>Instagram:</strong> <a href="https://instagram.com/Mini_won47" target="_blank">@Mini_won47</a></li>
+            <li><strong>GitHub:</strong> <a href="#" target="_blank">링크를 여기에 입력하세요</a></li>
+            <li><strong>블로그/SNS:</strong> <a href="#" target="_blank">링크를 여기에 입력하세요</a></li>
+        </ul>
+    </div>
+
+</div>
 
 </body>
 </html>
