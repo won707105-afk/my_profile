@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="박채원 — 서경대학교 스포츠앤테크놀로지학과">
+  <title>박채원 | Profile</title>
+  <style>
+    :root {
+      --ink: #151922;
+      --muted: #667080;
+      --line: #e7eaf0;
+      --soft: #f5f7fa;
+      --blue: #2458d3;
+      --nav: 70px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav) + 22px);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(100% - 48px, var(--max));
+      margin: auto;
+    }
+
+    /* Fixed Navigation */
+    header {
+      height: var(--nav);
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      background: rgba(255,255,255,.91);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      height: 100%;
+      width: min(100% - 48px, var(--max));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .logo b { color: var(--blue); }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 12px;
+      font-weight: 650;
+      color: #596273;
+      transition: color .2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--blue); }
+
+    .menu {
+      display: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 9px;
+      width: 40px;
+      height: 38px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    main { padding-top: var(--nav); }
+
+    section {
+      scroll-margin-top: calc(var(--nav) + 22px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 105px 0 85px;
+      background: linear-gradient(120deg, #f6f8fc, #fff 72%);
+    }
+
+    .kicker {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 1.02;
+      letter-spacing: -.075em;
+      margin: 18px 0 12px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .subtitle {
+      font-size: clamp(16px, 2vw, 20px);
+      color: #5c6573;
+      margin: 0;
+      letter-spacing: -.025em;
+    }
+
+    .hero-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-top: 58px;
+    }
+
+    .hero-foot p {
+      max-width: 600px;
+      color: #48515f;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .hero-foot small {
+      font-size: 10px;
+      color: #8b93a0;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    /* Common Section */
+    .section { padding: 82px 0; }
+
+    .head {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+
+    .num {
+      font-size: 10px;
+      color: var(--blue);
+      font-weight: 800;
+      letter-spacing: .15em;
+      padding-top: 8px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -.055em;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 10px 0 0;
+    }
+
+    .offset { margin-left: 225px; }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 55px;
+    }
+
+    .about-copy {
+      font-size: 16px;
+      line-height: 2;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+
+    .stack {
+      display: grid;
+      gap: 23px;
+      align-content: start;
+    }
+
+    .label {
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 5px 11px;
+      border: 1px solid #dfe4eb;
+      border-radius: 30px;
+      color: #394353;
+      background: white;
+    }
+
+    /* Education & Activities */
+    .subhead {
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    .timeline {
+      border-top: 1px solid var(--line);
+      margin-bottom: 34px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 35px;
+      padding: 21px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .item-type {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .item h3 {
+      font-size: 15px;
+      letter-spacing: -.025em;
+      margin: 0 0 2px;
+    }
+
+    .item p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .card {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .card small {
+      display: block;
+      color: var(--blue);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      margin: 0 0 3px;
+      letter-spacing: -.02em;
+    }
+
+    .card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Projects */
+    .project-image {
+      width: 100%;
+      height: auto;
+      max-height: 390px;
+      object-fit: cover;
+      border-radius: 13px;
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .project-title {
+      font-size: 24px;
+      letter-spacing: -.045em;
+      margin: 0 0 8px;
+    }
+
+    .project-copy {
+      font-size: 13px;
+      color: #596270;
+      margin: 0;
+    }
+
+    .project {
+      padding: 23px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .project h3 {
+      font-size: 15px;
+      margin: 0 0 2px;
+    }
+
+    .project .date {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 0 0 9px;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 17px;
+      font-size: 12px;
+      color: #4e5866;
+    }
+
+    li { padding: 2px 0; }
+
+    .learning {
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 21px;
+    }
+
+    .learning h3 {
+      font-size: 13px;
+      margin: 0 0 8px;
+    }
+
+    /* Credentials & Tools */
+    .credential-grid, .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .tile {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      min-height: 76px;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: var(--soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tile strong {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .tool-group { margin-bottom: 26px; }
+    .tool-group:last-child { margin-bottom: 0; }
+
+    .tool-group h3 {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    /* Contact */
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      background: #f5f7fa;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .contact h3 {
+      font-size: 19px;
+      letter-spacing: -.04em;
+      margin: 0 0 3px;
+    }
+
+    .contact p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .action {
+      border: 1px solid #dce2e9;
+      background: #fff;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .action:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .contact-detail {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 11px 0 0;
+    }
+
+    footer {
+      padding: 24px 0 32px;
+      color: #89919c;
+      font-size: 10px;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    /* Tablet */
+    @media (max-width: 800px) {
+      nav { gap: 13px; }
+      nav a { font-size: 10px; }
+      .head {
+        grid-template-columns: 140px 1fr;
+        gap: 25px;
+      }
+      .offset { margin-left: 165px; }
+      .item {
+        grid-template-columns: 140px 1fr;
+        gap: 25px;
+      }
+      .about { gap: 30px; }
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      :root { --nav: 62px; }
+
+      .wrap, .nav-inner {
+        width: calc(100% - 40px);
+      }
+
+      .menu {
+        display: block;
+        cursor: pointer;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: var(--nav);
+        left: 0;
+        right: 0;
+        padding: 10px 20px 16px;
+        background: rgba(255,255,255,.98);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      nav.open { display: flex; }
+
+      nav a {
+        font-size: 13px;
+        padding: 10px 2px;
+        border-bottom: 1px solid #f0f1f3;
+      }
+
+      nav a:last-child { border: 0; }
+
+      .hero { padding: 72px 0 58px; }
+
+      .hero-foot {
+        margin-top: 38px;
+        align-items: start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .section { padding: 60px 0; }
+
+      .head {
+        display: block;
+        margin-bottom: 27px;
+      }
+
+      .num { margin-bottom: 10px; }
+      .offset { margin-left: 0; }
+
+      .about, .project-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .about-copy { font-size: 14px; }
+
+      .item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 17px 0;
+      }
+
+      .cards, .credential-grid, .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 21px;
+      }
+
+      .foot { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a class="logo" href="#home" aria-label="박채원 홈페이지">
+      PARK CHAEWON<b>.</b>
+    </a>
+    <button class="menu" aria-label="메뉴 열기"
+      aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav id="main-nav" aria-label="주요 메뉴">
+      <a href="#about">자기소개</a>
+      <a href="#background">학력 및 이력</a>
+      <a href="#activities">주요 활동</a>
+      <a href="#credentials">자격 및 수상</a>
+      <a href="#tools">활용 도구</a>
+      <a href="#contact">연락처</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 00. 기본 정보 -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="kicker">PROFILE / SPORTS &amp; TECHNOLOGY</div>
+      <h1>박채원<span>.</span></h1>
+      <p class="subtitle">서경대학교 스포츠앤테크놀로지학과</p>
+      <div class="hero-foot">
+        <p>스포츠 분야의 연구와 데이터 분석, 콘텐츠 기획에 관심을 가지고 다양한 활동을 이어가고 있습니다.</p>
+        <small>PROFILE</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01. 자기소개 -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="head">
+        <div class="num">01 / ABOUT</div>
+        <div>
+          <h2>자기소개</h2>
+          <p class="intro">관심 분야와 강점, 희망 진로를 소개합니다.</p>
+        </div>
+      </div>
+      <div class="about offset">
+        <p class="about-copy">
+          스포츠앤테크놀로지학과에서 스포츠와 기술의 접점을 공부하며,
+          데이터 분석과 운동역학 분야에 관심을 가지고 있습니다.
+          섬세함과 배려를 바탕으로 주변 사람들과 협력하며,
+          계획한 일을 실제 행동으로 옮기는 실행력을 강점으로 삼고 있습니다.
+          <br><br>
+          앞으로 연구와 데이터 분석, 콘텐츠 기획 분야에서
+          스포츠에 대한 이해를 바탕으로 다양한 경험을 쌓아가고자 합니다.
+        </p>
+        <div class="stack">
+          <div>
+            <p class="label">Interests</p>
+            <div class="tags">
+              <span class="tag">데이터 분석</span>
+              <span class="tag">운동역학</span>
+              <span class="tag">연구</span>
+              <span class="tag">콘텐츠 기획</span>
+            </div>
+          </div>
+          <div>
+            <p class="label">Strengths</p>
+            <div class="tags">
+              <span class="tag">섬세함</span>
+              <span class="tag">배려</span>
+              <span class="tag">실행력</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. 학력 및 이력 -->
+  <section class="section" id="background">
+    <div class="wrap">
+      <div class="head">
+        <div class="num">02 / BACKGROUND</div>
+        <div>
+          <h2>학력 및 이력</h2>
+          <p class="intro">학력, 동아리 및 대외활동, 스포츠 지도 경험</p>
+        </div>
+      </div>
+      <div class="offset">
+        <p class="subhead">학력</p>
+        <div class="timeline">
+          <div class="item">
+            <div class="item-type">대학교</div>
+            <div>
+              <h3>서경대학교</h3>
+              <p>스포츠앤테크놀로지학과</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="subhead">동아리 및 대외활동</p>
+        <div class="timeline">
+          <div class="item">
+            <div class="item-type">동아리</div>
+            <div>
+              <h3>스포츠의학동아리 RE:fit</h3>
+              <p>스포츠의학 관련 동아리 활동</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-type">동아리</div>
+            <div>
+              <h3>스포츠마케팅동아리 SPARK</h3>
+              <p>스포츠 마케팅 프로젝트 및 FC서울 협업 활동</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-type">연구</div>
+            <div>
+              <h3>moty V 등속모드·일반 모드 효과 비교 분석 연구</h3>
+              <p>연구트레이너</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-type">봉사활동</div>
+            <div>
+              <h3>성동구 체력측정평가 도우미</h3>
+              <p>체력측정평가 봉사활동</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-type">서포터즈</div>
+            <div>
+              <h3>서경대 창의산학교육원 서포터즈</h3>
+              <p>1기 · 2기</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="subhead">스포츠 활동 및 지도 경험</p>
+        <div class="cards">
+          <article class="card">
+            <small>TRAINER</small>
+            <h3>휘트니스피플 이수점</h3>
+            <p>트레이너</p>
+          </article>
+          <article class="card">
+            <small>MAIN INSTRUCTOR</small>
+            <h3>위너스체대입시학원 노원점</h3>
+            <p>메인강사</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. 주요 활동 -->
+  <section class="section" id="activities">
+    <div class="wrap">
+      <div class="head">
+        <div class="num">03 / ACTIVITIES</div>
+        <div>
+          <h2>주요 활동 및 경험</h2>
+          <p class="intro">스포츠마케팅동아리 SPARK의 FC서울 협업 프로젝트</p>
+        </div>
+      </div>
+      <div class="offset">
+        <img class="project-image"
+          src="https://images.openai.com/static-rsc-4/JWeBuqoI7K3q5r96pLy_f0JUTmTXr-OmVqkM8maFNDiN9MLF0DJJRBJpLjE_gPRuZ-KjqE0EpUjBdpZBN5BNbqJVbfqSwIQCV4pmtYUmkwg77T1s2ARY0KUA-hkzv1TGDgGzxM5aUEgcgpe8XrwZiNsZLcIKMErOxwEOesMcCvU?purpose=inline"
+          alt="프로축구 K리그1 FC서울, 단일시즌 최다 관중 신기록">
+
+        <div class="project-grid">
+          <div>
+            <p class="kicker">SPARK × FC SEOUL</p>
+            <h3 class="project-title">FC서울 협업 프로젝트</h3>
+            <p class="project-copy">
+              FC서울의 2030세대를 대상으로 지속적인 경기 관람을
+              유도하기 위한 마케팅 프로젝트에 참여했습니다.
+              대학생 모객을 위한 현장 프로모션과 타깃 마케팅 경쟁 PT를
+              진행하며 스포츠 마케팅 기획 과정을 경험했습니다.
+            </p>
+          </div>
+          <aside class="learning">
+            <h3>활동을 통해 얻은 경험</h3>
+            <ul>
+              <li>신뢰성 있는 자료를 탐색하고 활용하는 방법</li>
+              <li>신청폼 질문 구성과 응답자의 이해도를 고려한 설계</li>
+              <li>축구 팬덤과 관람 문화에 대한 이해</li>
+              <li>대학생 관람객 모객을 위한 마케팅 기획 경험</li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="project">
+          <p class="kicker">PROJECT 1</p>
+          <h3>FC서울 경기 대학생 모객</h3>
+          <p class="date">9월 5일 · FC서울 vs 인천유나이티드</p>
+          <ul>
+            <li>대학생 관람객 모집을 위한 신청 구글폼 제작</li>
+            <li>신청 및 행사 관련 비용 관리</li>
+            <li>홍보 영상 제작</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <p class="kicker">PROJECT 2</p>
+          <h3>타깃팅 경쟁 PT</h3>
+          <p class="date">10월 2일</p>
+          <ul>
+            <li>QR 설문지 제작</li>
+            <li>프로젝트 예산 조사 및 정리</li>
+            <li>4P 전략 수립을 위한 자료 조사</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. 자격 및 수상 -->
+  <section class="section" id="credentials">
+    <div class="wrap">
+      <div class="head">
+        <div class="num">04 / CREDENTIALS</div>
+        <div><h2>자격 및 수상</h2></div>
+      </div>
+      <div class="credential-grid offset">
+        <div class="tile">
+          <span class="icon">01</span>
+          <strong>생활스포츠지도자 2급 자격증</strong>
+        </div>
+        <div class="tile">
+          <span class="icon">02</span>
+          <strong>FISAF 국제퍼스널트레이너 1급 자격증</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05. 활용 도구 -->
+  <section class="section" id="tools">
+    <div class="wrap">
+      <div class="head">
+        <div class="num">05 / TOOLS</div>
+        <div><h2>보유 역량 및 활용 도구</h2></div>
+      </div>
+      <div class="offset">
+        <div class="tool-group">
+          <h3>문서 및 AI 도구</h3>
+          <div class="tool-grid">
+            <div class="tile"><span class="icon">H</span><strong>한글</strong></div>
+            <div class="tile"><span class="icon">AI</span><strong>ChatGPT</strong></div>
+            <div class="tile"><span class="icon">G</span><strong>Gemini</strong></div>
+          </div>
+        </div>
+        <div class="tool-group">
+          <h3>영상 및 디자인</h3>
+          <div class="tool-grid">
+            <div class="tile"><span class="icon">C</span><strong>CapCut</strong></div>
+            <div class="tile"><span class="icon">F</span><strong>Figma</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06. 연락처 -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="head">
+        <div class="num">06 / CONTACT</div>
+        <div><h2>연락처 및 링크</h2></div>
+      </div>
+      <div class="offset">
+        <div class="contact">
+          <div>
+            <h3>박채원</h3>
+            <p>서경대학교 스포츠앤테크놀로지학과</p>
+          </div>
+          <div class="actions">
+            <a class="action" href="mailto:won707105@skuniv.ac.kr">✉ Email</a>
+            <a class="action"
+              href="https://www.instagram.com/mini_won47/"
+              target="_blank" rel="noopener noreferrer">↗ Instagram</a>
+            <button class="action" id="copy-email" type="button">이메일 복사</button>
+          </div>
+        </div>
+        <p class="contact-detail">
+          Email · won707105@skuniv.ac.kr &nbsp; / &nbsp;
+          Instagram · Mini_won47
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>박채원 · 서경대학교 스포츠앤테크놀로지학과</span>
+    <a href="#home">처음으로 ↑</a>
+  </div>
+</footer>
+
+<script>
+  const menuButton = document.querySelector('.menu');
+  const nav = document.querySelector('#main-nav');
+  const navItems = [...nav.querySelectorAll('a')];
+
+  // 모바일 메뉴 열기 / 닫기
+  menuButton.addEventListener('click', () => {
+    const opened = nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(opened));
+    menuButton.setAttribute('aria-label', opened ? '메뉴 닫기' : '메뉴 열기');
+    menuButton.textContent = opened ? '×' : '☰';
+  });
+
+  // 메뉴 선택 후 모바일 메뉴 닫기
+  navItems.forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', '메뉴 열기');
+    menuButton.textContent = '☰';
+  }));
+
+  // 현재 화면에 표시된 섹션에 맞춰 메뉴 강조
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(a => {
+          a.classList.toggle(
+            'active',
+            a.hash === '#' + entry.target.id
+          );
+        });
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+
+  document.querySelectorAll('main section[id]').forEach(section => {
+    observer.observe(section);
+  });
+
+  // 이메일 복사
+  document.querySelector('#copy-email').addEventListener('click', async () => {
+    const email = 'won707105@skuniv.ac.kr';
+    try {
+      await navigator.clipboard.writeText(email);
+      document.querySelector('#copy-email').textContent = '복사 완료';
+    } catch {
+      window.location.href = 'mailto:' + email;
+    }
+  });
+</script>
+</body>
+</html>
